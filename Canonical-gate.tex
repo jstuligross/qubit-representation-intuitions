@@ -22,33 +22,6 @@ What will the matrix of a canonical gate look like?
 
 \begin{align*}
   \Can(t_x,t_y,t_z) =& \exp\pqty{-i\frac{\pi}{2}\pqty{t_x X\otimes X + t_y Y\otimes Y + t_z Z\otimes Z}} \\
-  X \otimes X =&
-  \bqty{
-  \begin{array}{cccc}
-    0&0&0&1 \\
-    0&0&1&0 \\
-    0&1&0&0 \\
-    1&0&0&0 \\
-  \end{array}
-  } \\
-  Y \otimes Y =&
-  \bqty{
-  \begin{array}{cccc}
-    0&0&0&-1 \\
-    0&0&1&0 \\
-    0&1&0&0 \\
-    -1&0&0&0 \\
-  \end{array}
-  } \\
-  Z \otimes Z =&
-  \bqty{
-  \begin{array}{cccc}
-    1&0&0&0 \\
-    0&-1&0&0 \\
-    0&0&-1&0 \\
-    0&0&0&1 \\
-  \end{array}
-  }
 \end{align*}
 Useful identity for operators that square to the identity ($A^2 = I$):
 $$
@@ -59,70 +32,8 @@ $$
 So for each of the three we get:
 \begin{align*}
   \exp\pqty{i\frac{\pi}{2}t_x X\otimes X} =& \cos\pqty{\frac{\pi}{2}t_x} I + i\sin\pqty{\frac{\pi}{2}t_x} X\otimes X \\
-  =& 
-  \cos\pqty{\frac{\pi}{2}t_x}
-  \bqty{
-  \begin{array}{cccc}
-    1&0&0&0 \\
-    0&1&0&0 \\
-    0&0&1&0 \\
-    0&0&0&1 \\
-  \end{array}
-  }
-  +
-  i\sin\pqty{\frac{\pi}{2}t_x}
-  \bqty{
-  \begin{array}{cccc}
-    0&0&0&1 \\
-    0&0&1&0 \\
-    0&1&0&0 \\
-    1&0&0&0 \\
-  \end{array}
-  }
-  \\
   \exp\pqty{i\frac{\pi}{2}t_y Y\otimes Y} =& \cos\pqty{\frac{\pi}{2}t_y} I + i\sin\pqty{\frac{\pi}{2}t_y} Y\otimes Y \\
-  =& 
-  \cos\pqty{\frac{\pi}{2}t_y}
-  \bqty{
-  \begin{array}{cccc}
-    1&0&0&0 \\
-    0&1&0&0 \\
-    0&0&1&0 \\
-    0&0&0&1 \\
-  \end{array}
-  }
-  +
-  i\sin\pqty{\frac{\pi}{2}t_y}
-  \bqty{
-  \begin{array}{cccc}
-    0&0&0&-1 \\
-    0&0&1&0 \\
-    0&1&0&0 \\
-    -1&0&0&0 \\
-  \end{array}
-  }
-  \\
   \exp\pqty{i\frac{\pi}{2}t_z Z\otimes Z} =& \cos\pqty{\frac{\pi}{2}t_z} I + i\sin\pqty{\frac{\pi}{2}t_z} Z\otimes Z \\
-  =& 
-  \cos\pqty{\frac{\pi}{2}t_z}
-  \bqty{
-  \begin{array}{cccc}
-    1&0&0&0 \\
-    0&1&0&0 \\
-    0&0&1&0 \\
-    0&0&0&1 \\
-  \end{array}
-  }
-  +
-  i\sin\pqty{\frac{\pi}{2}t_z}
-  \bqty{
-  \begin{array}{cccc}
-    1&0&0&0 \\
-    0&-1&0&0 \\
-    0&0&-1&0 \\
-    0&0&0&1 \\
-  \end{array}
-  }
 \end{align*}
 
 It'll be easier to multiply these matrices together if we don't combine the matrices:
@@ -130,32 +41,17 @@ It'll be easier to multiply these matrices together if we don't combine the matr
 \begin{align*}
   &\exp\pqty{-i\frac{\pi}{2}\pqty{t_x X\otimes X + t_y Y\otimes Y}} \\
   =& \exp\pqty{i\frac{\pi}{2}t_x X\otimes X} \exp\pqty{i\frac{\pi}{2}t_y Y\otimes Y} \\
-  =&
-  \bqty{
-  \cos\pqty{\frac{\pi}{2}t_x} I
-  +
-  i\sin\pqty{\frac{\pi}{2}t_x}
-  \bqty{
-  \begin{array}{cccc}
-    0&0&0&1 \\
-    0&0&1&0 \\
-    0&1&0&0 \\
-    1&0&0&0 \\
-  \end{array}
-  }
-  }
-  \bqty{
-  \cos\pqty{\frac{\pi}{2}t_y} I
-  +
-  i\sin\pqty{\frac{\pi}{2}t_y}
-  \bqty{
-  \begin{array}{cccc}
-    0&0&0&-1 \\
-    0&0&1&0 \\
-    0&1&0&0 \\
-    -1&0&0&0 \\
-  \end{array}
-  }
-  }
+  =& \pqty{\cos\pqty{\frac{\pi}{2}t_x} I + i\sin\pqty{\frac{\pi}{2}t_x} X\otimes X}
+  \pqty{\cos\pqty{\frac{\pi}{2}t_y} I + i\sin\pqty{\frac{\pi}{2}t_y} Y\otimes Y} \\
+  =& \cos\pqty{\frac{\pi}{2}t_x}\pqty{\cos\pqty{\frac{\pi}{2}t_y} I + i\sin\pqty{\frac{\pi}{2}t_y} Y\otimes Y} 
+  \\&+
+  i\sin\pqty{\frac{\pi}{2}t_x} X\otimes X\pqty{\cos\pqty{\frac{\pi}{2}t_y} I + i\sin\pqty{\frac{\pi}{2}t_y} Y\otimes Y}
+  \\
+  =& \cos\pqty{\frac{\pi}{2}t_x}\cos\pqty{\frac{\pi}{2}t_y} I
+  \\&+ i\cos\pqty{\frac{\pi}{2}t_x}\sin\pqty{\frac{\pi}{2}t_y} Y\otimes Y 
+  \\&+
+  i\sin\pqty{\frac{\pi}{2}t_x} \cos\pqty{\frac{\pi}{2}t_y} X\otimes X
+  \\&- \sin\pqty{\frac{\pi}{2}t_x} \sin\pqty{\frac{\pi}{2}t_y} \pqty{X\otimes X}\pqty{Y\otimes Y}
+  \\
 \end{align*}
 \end{document}
