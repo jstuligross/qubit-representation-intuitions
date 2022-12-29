@@ -48,15 +48,17 @@ What will the matrix of a canonical gate look like?
     0&0&-1&0 \\
     0&0&0&1 \\
   \end{array}
-  }
+  }\\
+  (X\otimes X)(Y\otimes Y) =& (Y\otimes Y)(X\otimes X) = -Z\otimes Z \\
+  (Z\otimes Z)(Y\otimes Y) =& (Y\otimes Y)(Z\otimes Z) = -X\otimes X \\
+  (Z\otimes Z)(X\otimes X) =& (X\otimes X)(Z\otimes Z) = -Y\otimes Y \\
 \end{align*}
 Useful identity for operators that square to the identity ($A^2 = I$):
 $$
 \exp(i\theta A) = \cos(\theta) I + i\sin(\theta) A
 $$
-(note that the three matrices above all square to the identity)
 
-So for each of the three we get:
+Note that the three matrices above all square to the identity, so for each of the three we get:
 \begin{align*}
   \exp\pqty{i\frac{\pi}{2}t_x X\otimes X} =& \cos\pqty{\frac{\pi}{2}t_x} I + i\sin\pqty{\frac{\pi}{2}t_x} X\otimes X \\
   =& 
