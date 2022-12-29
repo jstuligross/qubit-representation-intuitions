@@ -8,6 +8,7 @@
 
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\R}{\mathbb{R}}
+\DeclareMathOperator{\can}{Can}
 
 \title{Gate Behavior}
 \author{Jacob Stuligross}
@@ -17,11 +18,40 @@
 
 \maketitle
 
-Let's first get a look at what the basis states will look like when we apply a unitary transformation to them.
-This will give us an idea of what a set of orthonormal states will look like.
+What will the matrix of a canonical gate look like?
 
 \begin{align*}
-  
+  \Can(t_x,t_y,t_z) =& \exp\pqty{-i\frac{\pi}{2}\pqty{t_x X\otimes X + t_y Y\otimes Y + t_z Z\otimes Z}} \\
+  X \otimes X =&
+  \bqty{
+  \begin{array}{cccc}
+    0&0&0&1 \\
+    0&0&1&0 \\
+    0&1&0&0 \\
+    1&0&0&0 \\
+  \end{array}
+  } \\
+  Y \otimes Y =&
+  \bqty{
+  \begin{array}{cccc}
+    0&0&0&-1 \\
+    0&0&1&0 \\
+    0&1&0&0 \\
+    -1&0&0&0 \\
+  \end{array}
+  } \\
+  Z \otimes Z =&
+  \bqty{
+  \begin{array}{cccc}
+    1&0&0&0 \\
+    0&-1&0&0 \\
+    0&0&-1&0 \\
+    0&0&0&1 \\
+  \end{array}
+  } \\
 \end{align*}
-
+Useful identity for operators that square to the identity ($A^2 = I$):
+$$
+\exp(i\theta A) = \cos(\theta) I + i\sin(\theta) A
+$$
 \end{document}
