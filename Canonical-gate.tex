@@ -21,7 +21,7 @@
 What will the matrix of a canonical gate look like?
 
 \begin{align*}
-  \Can(t_x,t_y,t_z) =& \exp\pqty{-i\frac{\pi}{2}\pqty{t_x X\otimes X + t_y Y\otimes Y + t_z Z\otimes Z}} \\
+  \can(t_x,t_y,t_z) =& \exp\pqty{-i\frac{\pi}{2}\pqty{t_x X\otimes X + t_y Y\otimes Y + t_z Z\otimes Z}} \\
 \end{align*}
 Useful identity for operators that square to the identity ($A^2 = I$):
 $$
@@ -46,7 +46,7 @@ quick note some identities:
 It'll be easier to multiply these matrices together if we don't combine the matrices:
 
 \begin{align*}
-  &\exp\pqty{-i\frac{\pi}{2}\pqty{t_x X\otimes X + t_y Y\otimes Y}} \\
+  & \exp\pqty{-i\frac{\pi}{2}\pqty{t_x X\otimes X + t_y Y\otimes Y}} \\
   =& \exp\pqty{i\frac{\pi}{2}t_x X\otimes X} \exp\pqty{i\frac{\pi}{2}t_y Y\otimes Y} \\
   =& \pqty{\cos\pqty{\frac{\pi}{2}t_x} I + i\sin\pqty{\frac{\pi}{2}t_x} X\otimes X}
   \pqty{\cos\pqty{\frac{\pi}{2}t_y} I + i\sin\pqty{\frac{\pi}{2}t_y} Y\otimes Y} \\
@@ -64,6 +64,125 @@ It'll be easier to multiply these matrices together if we don't combine the matr
   \\&+ i\sin\pqty{\frac{\pi}{2}t_x} \cos\pqty{\frac{\pi}{2}t_y} X\otimes X
   \\&+ i\cos\pqty{\frac{\pi}{2}t_x}\sin\pqty{\frac{\pi}{2}t_y} Y\otimes Y 
   \\&+ \sin\pqty{\frac{\pi}{2}t_x} \sin\pqty{\frac{\pi}{2}t_y} Z\otimes Z
-  \\
 \end{align*}
+
+Now let's multiply on the last component (one term at a time to avoid messy algebra):
+
+\begin{align*}
+  & \cos\pqty{\frac{\pi}{2}t_x}\cos\pqty{\frac{\pi}{2}t_y} I \exp\pqty{i\frac{\pi}{2}t_z Z\otimes Z} \\
+  &= \cos\pqty{\frac{\pi}{2}t_x}\cos\pqty{\frac{\pi}{2}t_y}\pqty{\cos\pqty{\frac{\pi}{2}t_z} I + i\sin\pqty{\frac{\pi}{2}t_z} Z\otimes Z} \\
+  &= \cos\pqty{\frac{\pi}{2}t_x}\cos\pqty{\frac{\pi}{2}t_y}\cos\pqty{\frac{\pi}{2}t_z} I + i\cos\pqty{\frac{\pi}{2}t_x}\cos\pqty{\frac{\pi}{2}t_y}\sin\pqty{\frac{\pi}{2}t_z} Z\otimes Z \\
+  \\
+  & i\sin\pqty{\frac{\pi}{2}t_x} \cos\pqty{\frac{\pi}{2}t_y} X\otimes X \exp\pqty{i\frac{\pi}{2}t_z Z\otimes Z} \\
+  &= i\sin\pqty{\frac{\pi}{2}t_x} \cos\pqty{\frac{\pi}{2}t_y} X\otimes X \pqty{\cos\pqty{\frac{\pi}{2}t_z} I + i\sin\pqty{\frac{\pi}{2}t_z} Z\otimes Z} \\
+  &= i\sin\pqty{\frac{\pi}{2}t_x} \cos\pqty{\frac{\pi}{2}t_y}\cos\pqty{\frac{\pi}{2}t_z} X\otimes X - \sin\pqty{\frac{\pi}{2}t_x} \cos\pqty{\frac{\pi}{2}t_y} \sin\pqty{\frac{\pi}{2}t_z} \pqty{X\otimes X}\pqty{Z\otimes Z} \\
+  &= i\sin\pqty{\frac{\pi}{2}t_x} \cos\pqty{\frac{\pi}{2}t_y}\cos\pqty{\frac{\pi}{2}t_z} X\otimes X + \sin\pqty{\frac{\pi}{2}t_x} \cos\pqty{\frac{\pi}{2}t_y} \sin\pqty{\frac{\pi}{2}t_z} Y\otimes Y \\
+  \\
+  & i\cos\pqty{\frac{\pi}{2}t_x}\sin\pqty{\frac{\pi}{2}t_y} Y\otimes Y \exp\pqty{i\frac{\pi}{2}t_z Z\otimes Z} \\
+  &= i\cos\pqty{\frac{\pi}{2}t_x}\sin\pqty{\frac{\pi}{2}t_y} Y\otimes Y \pqty{\cos\pqty{\frac{\pi}{2}t_z} I + i\sin\pqty{\frac{\pi}{2}t_z} Z\otimes Z} \\
+  &= i\cos\pqty{\frac{\pi}{2}t_x}\sin\pqty{\frac{\pi}{2}t_y}\cos\pqty{\frac{\pi}{2}t_z} Y\otimes Y - \cos\pqty{\frac{\pi}{2}t_x}\sin\pqty{\frac{\pi}{2}t_y}\sin\pqty{\frac{\pi}{2}t_z} \pqty{Y\otimes Y}\pqty{Z\otimes Z} \\
+  &= i\cos\pqty{\frac{\pi}{2}t_x}\sin\pqty{\frac{\pi}{2}t_y}\cos\pqty{\frac{\pi}{2}t_z} Y\otimes Y + \cos\pqty{\frac{\pi}{2}t_x}\sin\pqty{\frac{\pi}{2}t_y}\sin\pqty{\frac{\pi}{2}t_z} X\otimes X \\
+  \\
+  & \sin\pqty{\frac{\pi}{2}t_x} \sin\pqty{\frac{\pi}{2}t_y} Z\otimes Z \exp\pqty{i\frac{\pi}{2}t_z Z\otimes Z} \\
+  &= \sin\pqty{\frac{\pi}{2}t_x} \sin\pqty{\frac{\pi}{2}t_y} Z\otimes Z \pqty{\cos\pqty{\frac{\pi}{2}t_z} I + i\sin\pqty{\frac{\pi}{2}t_z} Z\otimes Z} \\
+  &= \sin\pqty{\frac{\pi}{2}t_x}\sin\pqty{\frac{\pi}{2}t_y}\cos\pqty{\frac{\pi}{2}t_z} Z\otimes Z + i\sin\pqty{\frac{\pi}{2}t_x}\sin\pqty{\frac{\pi}{2}t_y}\sin\pqty{\frac{\pi}{2}t_z} I \\
+\end{align*}
+
+Full sum:
+\begin{align*}
+  & \cos\pqty{\frac{\pi}{2}t_x}\cos\pqty{\frac{\pi}{2}t_y}\cos\pqty{\frac{\pi}{2}t_z} I 
+  \\&+ i\sin\pqty{\frac{\pi}{2}t_x}\sin\pqty{\frac{\pi}{2}t_y}\sin\pqty{\frac{\pi}{2}t_z} I
+  \\&+ \cos\pqty{\frac{\pi}{2}t_x}\sin\pqty{\frac{\pi}{2}t_y}\sin\pqty{\frac{\pi}{2}t_z} X\otimes X 
+  \\&+ i\sin\pqty{\frac{\pi}{2}t_x} \cos\pqty{\frac{\pi}{2}t_y}\cos\pqty{\frac{\pi}{2}t_z} X\otimes X 
+  \\&+ \sin\pqty{\frac{\pi}{2}t_x} \cos\pqty{\frac{\pi}{2}t_y} \sin\pqty{\frac{\pi}{2}t_z} Y\otimes Y 
+  \\&+ i\cos\pqty{\frac{\pi}{2}t_x}\sin\pqty{\frac{\pi}{2}t_y}\cos\pqty{\frac{\pi}{2}t_z} Y\otimes Y 
+  \\&+ \sin\pqty{\frac{\pi}{2}t_x}\sin\pqty{\frac{\pi}{2}t_y}\cos\pqty{\frac{\pi}{2}t_z} Z\otimes Z 
+  \\&+ i\cos\pqty{\frac{\pi}{2}t_x}\cos\pqty{\frac{\pi}{2}t_y}\sin\pqty{\frac{\pi}{2}t_z} Z\otimes Z 
+  \\
+  \\=& \bqty{\cos\pqty{\frac{\pi}{2}t_x}\cos\pqty{\frac{\pi}{2}t_y}\cos\pqty{\frac{\pi}{2}t_z}  
+  + i\sin\pqty{\frac{\pi}{2}t_x}\sin\pqty{\frac{\pi}{2}t_y}\sin\pqty{\frac{\pi}{2}t_z}} I
+  \\&+ \bqty{\cos\pqty{\frac{\pi}{2}t_x}\sin\pqty{\frac{\pi}{2}t_y}\sin\pqty{\frac{\pi}{2}t_z} 
+  + i\sin\pqty{\frac{\pi}{2}t_x} \cos\pqty{\frac{\pi}{2}t_y}\cos\pqty{\frac{\pi}{2}t_z}} X\otimes X 
+  \\&+ \bqty{\sin\pqty{\frac{\pi}{2}t_x} \cos\pqty{\frac{\pi}{2}t_y} \sin\pqty{\frac{\pi}{2}t_z} 
+  + i\cos\pqty{\frac{\pi}{2}t_x}\sin\pqty{\frac{\pi}{2}t_y}\cos\pqty{\frac{\pi}{2}t_z}} Y\otimes Y 
+  \\&+ \bqty{\sin\pqty{\frac{\pi}{2}t_x}\sin\pqty{\frac{\pi}{2}t_y}\cos\pqty{\frac{\pi}{2}t_z}
+  + i\cos\pqty{\frac{\pi}{2}t_x}\cos\pqty{\frac{\pi}{2}t_y}\sin\pqty{\frac{\pi}{2}t_z}} Z\otimes Z 
+  \\
+  \\=& \cos\pqty{\frac{\pi}{2}t_x}\cos\pqty{\frac{\pi}{2}t_y}\cos\pqty{\frac{\pi}{2}t_z} I 
+  \\&+ \cos\pqty{\frac{\pi}{2}t_x}\sin\pqty{\frac{\pi}{2}t_y}\sin\pqty{\frac{\pi}{2}t_z} X\otimes X 
+  \\&+ \sin\pqty{\frac{\pi}{2}t_x} \cos\pqty{\frac{\pi}{2}t_y} \sin\pqty{\frac{\pi}{2}t_z} Y\otimes Y 
+  \\&+ \sin\pqty{\frac{\pi}{2}t_x}\sin\pqty{\frac{\pi}{2}t_y}\cos\pqty{\frac{\pi}{2}t_z} Z\otimes Z 
+  \\&+ i\Bigg[\sin\pqty{\frac{\pi}{2}t_x}\sin\pqty{\frac{\pi}{2}t_y}\sin\pqty{\frac{\pi}{2}t_z} I
+  \\&+ \sin\pqty{\frac{\pi}{2}t_x} \cos\pqty{\frac{\pi}{2}t_y}\cos\pqty{\frac{\pi}{2}t_z} X\otimes X 
+  \\&+ \cos\pqty{\frac{\pi}{2}t_x}\sin\pqty{\frac{\pi}{2}t_y}\cos\pqty{\frac{\pi}{2}t_z} Y\otimes Y 
+  \\&+ \cos\pqty{\frac{\pi}{2}t_x}\cos\pqty{\frac{\pi}{2}t_y}\sin\pqty{\frac{\pi}{2}t_z} Z\otimes Z \Bigg]
+\end{align*}
+
+If we want to show the actual matrix, it'll be better (that is, readable and codeable) if we define variables:
+\begin{align*}
+  \Re_I =& \cos\pqty{\frac{\pi}{2}t_x}\cos\pqty{\frac{\pi}{2}t_y}\cos\pqty{\frac{\pi}{2}t_z}
+  &
+  \Im_I =& \sin\pqty{\frac{\pi}{2}t_x}\sin\pqty{\frac{\pi}{2}t_y}\sin\pqty{\frac{\pi}{2}t_z} 
+  \\
+  \Re_X =& \cos\pqty{\frac{\pi}{2}t_x}\sin\pqty{\frac{\pi}{2}t_y}\sin\pqty{\frac{\pi}{2}t_z}
+  &
+  \Im_X =& \sin\pqty{\frac{\pi}{2}t_x} \cos\pqty{\frac{\pi}{2}t_y}\cos\pqty{\frac{\pi}{2}t_z}
+  \\
+  \Re_Y =& \sin\pqty{\frac{\pi}{2}t_x} \cos\pqty{\frac{\pi}{2}t_y} \sin\pqty{\frac{\pi}{2}t_z}
+  &
+  \Im_Y =& \cos\pqty{\frac{\pi}{2}t_x}\sin\pqty{\frac{\pi}{2}t_y}\cos\pqty{\frac{\pi}{2}t_z}
+  \\
+  \Re_Z =& \sin\pqty{\frac{\pi}{2}t_x}\sin\pqty{\frac{\pi}{2}t_y}\cos\pqty{\frac{\pi}{2}t_z}
+  &
+  \Im_Z =& \cos\pqty{\frac{\pi}{2}t_x}\cos\pqty{\frac{\pi}{2}t_y}\sin\pqty{\frac{\pi}{2}t_z}
+\end{align*}
+and then we get the following:
+$$
+\can(t_x,t_y,t_z) = \pqty{\Re_I + i\Im_I}I + \pqty{\Re_X + i\Im_X}X\otimes X + \pqty{\Re_Y + i\Im_Y}Y\otimes Y + \pqty{\Re_Z + i\Im_Z}Z\otimes Z
+$$
+which gives us
+$$
+\can(t_x,t_y,t_z) = 
+\bqty{
+\begin{array}{cccc}
+  \Re_I + i\Im_I + \Re_Z + i\Im_Z & 0 & 0 & \Re_X + i\Im_X - \Re_Y - i\Im_Y \\
+  0 & \Re_I + i\Im_I - \Re_Z - i\Im_Z & \Re_X + i\Im_X + \Re_Y + i\Im_Y & 0 \\
+  0 & \Re_X + i\Im_X + \Re_Y + i\Im_Y & \Re_I + i\Im_I - \Re_Z - i\Im_Z & 0 \\
+  \Re_X + i\Im_X - \Re_Y - i\Im_Y & 0 & 0 & \Re_I + i\Im_I + \Re_Z + i\Im_Z \\
+\end{array}
+}
+$$
+which can be rewritten in two ways:
+$$
+\can(t_x,t_y,t_z) = 
+\bqty{
+\begin{array}{cccc}
+  \Re_I + \Re_Z + i(\Im_I + \Im_Z) & 0 & 0 & \Re_X - \Re_Y + i(\Im_X - \Im_Y) \\
+  0 & \Re_I - \Re_Z + i(\Im_I - \Im_Z) & \Re_X + \Re_Y + i(\Im_X + \Im_Y) & 0 \\
+  0 & \Re_X + \Re_Y + i(\Im_X + \Im_Y) & \Re_I - \Re_Z + i(\Im_I - \Im_Z) & 0 \\
+  \Re_X - \Re_Y + i(\Im_X - \Im_Y) & 0 & 0 & \Re_I + \Re_Z + i(\Im_I + \Im_Z) \\
+\end{array}
+}
+$$
+$$
+\can(t_x,t_y,t_z) = 
+\bqty{
+\begin{array}{cccc}
+  \Re_I + \Re_Z & 0 & 0 & \Re_X - \Re_Y \\
+  0 & \Re_I - \Re_Z & \Re_X + \Re_Y & 0 \\
+  0 & \Re_X + \Re_Y & \Re_I - \Re_Z & 0 \\
+  \Re_X - \Re_Y & 0 & 0 & \Re_I + \Re_Z \\
+\end{array}
+}
++ i
+\bqty{
+\begin{array}{cccc}
+  \Im_I + \Im_Z & 0 & 0 & \Im_X - \Im_Y \\
+  0 & \Im_I - \Im_Z & \Im_X + \Im_Y & 0 \\
+  0 & \Im_X + \Im_Y & \Im_I - \Im_Z & 0 \\
+  \Im_X - \Im_Y & 0 & 0 & \Im_I + \Im_Z \\
+\end{array}
+}
+$$
+Note that the pure imaginary matrix has the same structure as the pure real one. 
 \end{document}
